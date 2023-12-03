@@ -1,8 +1,8 @@
 import { apiPath } from "../constants.js";
 const URL = "https://api.noroff.dev/api/v1";
-const button = document.querySelector("#LoginButton");
-const email = document.querySelector("#inputLoginEmail");
-const password = document.querySelector("#inputLoginPassword");
+const button = document.querySelector("#loginButton");
+const email = document.querySelector("#loginEmail");
+const password = document.querySelector("#loginPassword");
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
