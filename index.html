@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./src/js/api/index.js" type="module"></script>
-    <link rel="stylesheet" href="public/build/tailwind.css" />
+    <script src="./src/js/index.js" type="module"></script>
+    <link rel="stylesheet" href="dist/build/tailwind.css" />
     <title>SP2</title>
   </head>
 
@@ -14,13 +14,13 @@
         <div
           class="flex flex-wrap justify-between items-center mx-max max-w-screen-xl"
         >
-          <a href="index.html" class="flex items-center">
+          <a href="login.html" class="flex items-center">
             <img
               src="./files/Images/bruker2.png"
               alt=""
               class="mr-3 h-6 sm:h-9"
             />
-            <span class="text-l">Hello, Username</span>
+            <span id="username" class="text-l"></span>
           </a>
           <div class="flex items-center">
             <button
@@ -102,6 +102,9 @@
                   class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
                   required
                 />
+                <div class="py-2">
+                  <p id="loginResponse" class="italic text-sm text-red"></p>
+                </div>
               </div>
               <div class="flex justify-between">
                 <div class="flex items-start">
@@ -133,7 +136,7 @@
                 Not registered?
                 <a
                   href="#"
-                  class="text-main font-semibold hover:underline"
+                  class="text-main font-semibold hover:underline modal-open"
                   data-toggle="modal"
                   data-target="registerModal"
                   >Create account</a
@@ -185,6 +188,25 @@
             <form action="" class="space-y-4">
               <div>
                 <label
+                  for="registerUsername"
+                  class="block mb-2 text-sm font-semibold"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  name="registerUsername"
+                  id="registerUsername"
+                  class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
+                  placeholder="Username"
+                />
+                <div class="py-2">
+                  <p id="registerResponseName" class="italic text-sm text-red">
+                    Can not contain punctuation symbols
+                  </p>
+                </div>
+              </div>
+              <div>
+                <label
                   for="registerEmail"
                   class="block mb-2 text-sm font-semibold"
                   >Email</label
@@ -197,42 +219,61 @@
                   placeholder="example@stud.noroff.no"
                   required
                 />
+                <div class="py-2">
+                  <p
+                    id="registerResponseEmail"
+                    class="italic text-sm text-red"
+                  ></p>
+                </div>
               </div>
               <div>
                 <label
-                  for="registerPassword"
+                  for="registerPassword1"
                   class="block mb-2 text-sm font-semibold"
                   >Password</label
                 >
                 <input
                   type="password"
-                  name="registerPassword"
-                  id="registerPassword"
+                  name="registerPassword1"
+                  id="registerPassword1"
                   placeholder="••••••••"
                   class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
                   required
                 />
               </div>
-              <div class="flex justify-between">
-                <div class="flex items-start">
-                  <div class="flex items-center h-5">
-                    <input
-                      type="checkbox"
-                      name="rememberMe"
-                      id="rememberMe"
-                      class="w-4 h-4 border-spacing-0.5 border-gray-lighter rounded-sm"
-                    />
-                  </div>
-                  <label for="rememberMe" class="ms-2 text-sm"
-                    >Remember me</label
-                  >
-                </div>
-                <a href="#" class="text-sm text-main-dark hover:underline"
-                  >Lost password?</a
+              <div>
+                <label
+                  for="registerPassword2"
+                  class="block mb-2 text-sm font-semibold"
+                  >Password</label
                 >
+                <input
+                  type="password"
+                  name="registerPassword2"
+                  id="registerPassword2"
+                  placeholder="••••••••"
+                  class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
+                  required
+                />
+                <div class="py-2">
+                  <p
+                    id="registerResponsePassword"
+                    class="italic text-sm text-red"
+                  ></p>
+                </div>
               </div>
+              <!-- Husker ikke hvordan man gjorde dette. Fikser etterpå -->
+              <div>
+                <label
+                  for="registerAvatar"
+                  class="block mb-2 text-sm font-semibold"
+                  >Avatar</label
+                >
+                <input type="image" src="" alt="" id="registerAvatar" />
+              </div>
+
               <button
-                id="loginButton"
+                id="registerButton"
                 type="submit"
                 class="w-full text-white bg-main hover:text-black hover:bg-main-light focus:outline-none font-medium rounded-sm text-sm px-5 py-4 text-center"
               >
@@ -242,7 +283,7 @@
                 Not registered?
                 <a
                   href="#"
-                  class="text-main font-semibold hover:underline"
+                  class="text-main font-semibold hover:underline modal-open"
                   data-toggle="modal"
                   data-target="registerModal"
                   >Create account</a

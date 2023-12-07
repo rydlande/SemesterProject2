@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "postcss src/css/tailwind.css -o public/build/tailwind.css",
-    "watch": "tailwindcss -i src/css/tailwind.css -o public/build/tailwind.css --watch"
+    "build": "postcss src/css/tailwind.css -o dist/build/tailwind.css",
+    "watch": "tailwindcss -i src/css/tailwind.css -o dist/build/tailwind.css --watch"
   },
   "repository": {
     "type": "git",

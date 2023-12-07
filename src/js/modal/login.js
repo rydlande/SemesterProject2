@@ -1,17 +1,13 @@
-export * from "./auth/index.js";
-export * from "./constants.js";
-/* export * from "./"
-export * from "./"
-export * from "./" */
+export * from "../api/auth/index.js";
+export * from "../api/constants.js";
 
-/* 
-var openmodal = document.querySelectorAll(".modal-open");
+const openmodal = document.querySelectorAll(".modal-open");
 let selectedModalTargetId = "";
+
 for (var i = 0; i < openmodal.length; i++) {
-  openmodal[i].addEventListener("click", function (event) {
-    selectedModalTargetId =
-      event.target.attributes.getNamedItem("data-target").value;
-    event.preventDefault();
+  openmodal[i].addEventListener("click", function (e) {
+    selectedModalTargetId = e.target.getAttribute("data-target");
+    e.preventDefault();
     toggleModal();
   });
 }
@@ -24,27 +20,21 @@ for (var i = 0; i < closemodal.length; i++) {
   closemodal[i].addEventListener("click", toggleModal);
 }
 
-document.onkeydown = function (evt) {
-  evt = evt || window.event;
-  var isEscape = false;
-  if ("key" in evt) {
-    isEscape = evt.key === "Escape" || evt.key === "Esc";
-  } else {
-    isEscape = evt.keyCode === 27;
-  }
-  if (isEscape && document.body.classList.contains("modal-active")) {
-    toggleModal();
-  }
-};
-
 function toggleModal() {
   if (!selectedModalTargetId) {
     return;
   }
   const body = document.querySelector("body");
+
+  const openModals = document.querySelectorAll(".modal");
+  openModals.forEach((modal) => {
+    if (modal.id !== selectedModalTargetId) {
+      modal.classList.add("opacity-0", "pointer-events-none");
+    }
+  });
+
   const modal = document.getElementById(selectedModalTargetId);
   modal.classList.toggle("opacity-0");
   modal.classList.toggle("pointer-events-none");
   body.classList.toggle("modal-active");
 }
- */
