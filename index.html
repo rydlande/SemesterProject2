@@ -50,7 +50,6 @@
         class="modal-container w-11/12 md:max-w-md mx-auto rounded z-50 overflow-y-auto"
       >
         <div class="modal-content bg-fa py-4 text-left px-6">
-          <!--Title & close-->
           <div class="flex justify-between items-top pb-7">
             <div class="flex justify-between items-start flex-col">
               <h3 class="text-3xl font-bold pb-1">Let's sign you in</h3>
@@ -160,7 +159,6 @@
         class="modal-container w-11/12 md:max-w-md mx-auto rounded z-50 overflow-y-auto"
       >
         <div class="modal-content bg-fa py-4 text-left px-6">
-          <!--Title & close-->
           <div class="flex justify-between items-top pb-7">
             <div class="flex justify-around items-start flex-col">
               <h3 class="text-3xl font-bold pb-1">Create an account</h3>
@@ -184,113 +182,97 @@
               </svg>
             </div>
           </div>
-          <div>
-            <form action="" class="space-y-4">
-              <div>
-                <label
-                  for="registerUsername"
-                  class="block mb-2 text-sm font-semibold"
-                  >Username</label
-                >
-                <input
-                  type="text"
-                  name="registerUsername"
-                  id="registerUsername"
-                  class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
-                  placeholder="Username"
-                />
-                <div class="py-2">
-                  <p id="registerResponseName" class="italic text-sm text-red">
-                    Can not contain punctuation symbols
-                  </p>
-                </div>
-              </div>
-              <div>
-                <label
-                  for="registerEmail"
-                  class="block mb-2 text-sm font-semibold"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  name="registerEmail"
-                  id="registerEmail"
-                  class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
-                  placeholder="example@stud.noroff.no"
-                  required
-                />
-                <div class="py-2">
-                  <p
-                    id="registerResponseEmail"
-                    class="italic text-sm text-red"
-                  ></p>
-                </div>
-              </div>
-              <div>
-                <label
-                  for="registerPassword1"
-                  class="block mb-2 text-sm font-semibold"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  name="registerPassword1"
-                  id="registerPassword1"
-                  placeholder="••••••••"
-                  class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  for="registerPassword2"
-                  class="block mb-2 text-sm font-semibold"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  name="registerPassword2"
-                  id="registerPassword2"
-                  placeholder="••••••••"
-                  class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
-                  required
-                />
-                <div class="py-2">
-                  <p
-                    id="registerResponsePassword"
-                    class="italic text-sm text-red"
-                  ></p>
-                </div>
-              </div>
-              <!-- Husker ikke hvordan man gjorde dette. Fikser etterpå -->
-              <div>
-                <label
-                  for="registerAvatar"
-                  class="block mb-2 text-sm font-semibold"
-                  >Avatar</label
-                >
-                <input type="image" src="" alt="" id="registerAvatar" />
-              </div>
-
-              <button
-                id="registerButton"
-                type="submit"
-                class="w-full text-white bg-main hover:text-black hover:bg-main-light focus:outline-none font-medium rounded-sm text-sm px-5 py-4 text-center"
+          <!-- Form -->
+          <form action="" class="space-y-4">
+            <div>
+              <label
+                for="registerUsername"
+                class="block mb-2 text-sm font-semibold"
+                >Username</label
               >
-                Login to your account
-              </button>
-              <div class="text-sm font-medium text-gray-dark">
-                Not registered?
-                <a
-                  href="#"
-                  class="text-main font-semibold hover:underline modal-open"
-                  data-toggle="modal"
-                  data-target="registerModal"
-                  >Create account</a
-                >
-              </div>
-            </form>
-          </div>
+              <input
+                type="text"
+                name="registerUsername"
+                id="registerUsername"
+                class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
+                placeholder="Username"
+              />
+            </div>
+            <div>
+              <label
+                for="registerEmail"
+                class="block mb-2 text-sm font-semibold"
+                >Email</label
+              >
+              <input
+                type="email"
+                name="registerEmail"
+                id="registerEmail"
+                class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
+                placeholder="example@stud.noroff.no"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="registerPassword1"
+                class="block mb-2 text-sm font-semibold"
+                >Password</label
+              >
+              <input
+                type="password"
+                name="registerPassword1"
+                id="registerPassword1"
+                placeholder="••••••••"
+                class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
+                required
+              />
+            </div>
+              <div>
+              <label
+                for="registerPassword2"
+                class="block mb-2 text-sm font-semibold"
+                >Repeat password</label
+              >
+              <input
+                type="password"
+                name="registerPassword2"
+                id="registerPassword2"
+                placeholder="••••••••"
+                class="bg-gray-light border border-gray-lighter text-sm rounded-sm block w-full p-4"
+                required
+              />
+            </div>
+              <div>
+            <!-- Husker ikke hvordan man gjorde dette. Fikser etterpå -->
+              <label
+                for="registerAvatar"
+                class="block mb-2 text-sm font-semibold"
+                >Avatar</label
+              >
+              <input type="image" src="" alt="" id="registerAvatar" />
+            </div>
+            <div class="py-2">
+              <p id="registerResponse" class="italic text-sm text-red"></p>
+            </div>
+
+            <button
+              id="registerButton"
+              type="submit"
+              class="w-full text-white bg-main hover:text-black hover:bg-main-light focus:outline-none font-medium rounded-sm text-sm px-5 py-4 text-center"
+            >
+              Create account
+            </button>
+            <div class="text-sm font-medium text-gray-dark">
+              Already have an account?
+              <a
+                href="#"
+                class="text-main font-semibold hover:underline modal-open"
+                data-toggle="modal"
+                data-target="loginModal"
+                >Log in</a
+              >
+          </form>
         </div>
       </div>
     </div>
