@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "postcss src/css/tailwind.css -o dist/build/tailwind.css",
+    "build": "npm install && npx tailwindcss build ./src/css/tailwind.css -o ./dist/build/tailwind.css",
     "watch": "tailwindcss -i src/css/tailwind.css -o dist/build/tailwind.css --watch"
   },
   "repository": {
