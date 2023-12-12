@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card {
+  background-color: pink;
+  width: 300px;
+  margin: 2rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  object-fit: contain;
+  border-radius: 0.125rem;
+}
+
+.listingImageContainer {
+  background-color: green;
+  /* golden ratio: */
+  height: 185.4px;
+  width: 300px;
+  border-radius: 0.125rem;
+}
+
+.listingImage {
+  display: block;
+  margin: auto;
+  max-height: 185px;
+  max-width: 300px;
+  object-fit: contain;
+}
+
+.cardBottom {
+  padding: 1rem;
+  background-color: #9c67eb; /* purple */
+  object-fit: contain;
+}
