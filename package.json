@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm install && npx tailwindcss build ./src/css/tailwind.css -o ./dist/build/tailwind.css",
-    "watch": "tailwindcss -i src/css/tailwind.css -o dist/build/tailwind.css --watch"
+    "i-build": "npm install && npx tailwindcss build -i ./src/css/tailwind.css -o ./dist/build/tailwind.css",
+    "watch": "npx tailwindcss build -i src/css/tailwind.css -o dist/build/tailwind.css --watch"
   },
   "repository": {
     "type": "git",
