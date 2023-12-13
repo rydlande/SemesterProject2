@@ -5,6 +5,7 @@
 @tailwind utilities;
 @tailwind variants;
 
+/* Product-card */
 .card {
   background-color: #fafafa;
   width: 300px;
@@ -55,10 +56,8 @@
   margin: auto;
   max-height: 185px;
   max-width: 300px;
-  object-fit: contain;
-  margin-top: 0.5rem;
+  object-fit: cover;
 }
-
 .cardBottom {
   padding: 1rem;
 }
@@ -85,3 +84,4 @@
   display: flex;
   justify-content: flex-end;
 }
+/* Product-card */

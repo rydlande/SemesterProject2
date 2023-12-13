@@ -1,40 +1,7 @@
 import { apiPath } from '../constants.js';
 const container = document.querySelector('#container');
-let perPage = 15;
+let perPage = 30;
 let startIndex = 0;
-
-/* If I want to remove the listings that has an error because or media:
-async function listings() {
-  try {
-    const res = await fetch(
-      apiPath + '/auction/listings?_bids=true&_active=true',
-      {
-        method: 'get',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
-    );
-    
-    if (!res.ok) {
-      throw new Error(`Error fetching data: ${res.status}`);
-    }
-
-    const data = await res.json();
-    let slicedData = data.slice(startIndex, startIndex + perPage);
-    console.log(slicedData);
-    slicedData.forEach((item) => {
-      const cardElement = card(item);
-      container.append(cardElement);
-    });
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-    // Handle the error as needed, e.g., display a message to the user.
-  }
-}
-
-// ... rest of your code ...
-*/
 
 async function listings() {
   const res = await fetch(
