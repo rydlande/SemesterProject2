@@ -52,13 +52,18 @@ async function login() {
 
 const username = document.querySelector('#username');
 const name = localStorage.getItem('name');
+const pathname = window.location.pathname;
 
-if (name) {
-  username.textContent = `Hello, ${name}`;
-} else if (name === '') {
-  username.textContent = 'Hello, Guest';
-} else if (name === 'undefined') {
-  username.textContent = 'Hello, Guest';
-} else {
-  username.textContent = 'Hello, Guest';
+if (pathname === './index.html') {
+  if (name) {
+    username.textContent = `Hello, ${name}`;
+  } else if (name === '') {
+    username.textContent = 'Hello, Guest';
+  } else if (name === 'undefined') {
+    username.textContent = 'Hello, Guest';
+  } else {
+    username.textContent = 'Hello, Guest';
+  }
+} else if (pathname === './en_gb/listing/index.html') {
+  username.textContent = `Test`;
 }

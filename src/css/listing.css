@@ -1,0 +1,71 @@
+.container {
+  padding: 1rem;
+}
+.containerTop {
+}
+.imageBox {
+  height: 185.4px;
+  width: 300px;
+  border-radius: 0.125rem;
+}
+.image {
+  display: block;
+  margin: auto;
+  max-height: 185px;
+  max-width: 300px;
+  object-fit: cover;
+}
+.titleBox {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.spanID {
+  font-weight: 300;
+  color: rgb(107 114 128);
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.description {
+}
+.containerMid {
+}
+.top {
+  font-weight: 700;
+}
+.under {
+  font-weight: 300;
+  color: rgb(107 114 128);
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.containerBottom {
+}
+.bidsH3 {
+  font-weight: 600;
+  color: rgb(107 114 128);
+}
+.topBidBox {
+  display: flex;
+  justify-content: space-between;
+}
+.bidsBox {
+  display: flex;
+  justify-content: space-between;
+}
+.bidUsername {
+}
+.bidCreated {
+  font-weight: 300;
+  color: rgb(107 114 128);
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.bidAmount {
+}

@@ -1,11 +1,12 @@
 .card {
-  background-color: pink;
+  background-color: #fafafa;
   width: 300px;
   margin: 2rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   object-fit: contain;
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .cardTop {
   display: flex;
@@ -23,7 +24,7 @@
   padding: 0.25rem 0.5rem;
   border-radius: 0.125rem;
   opacity: 70%;
-  margin: 0.25rem;
+  margin: 0.5rem;
 }
 .countdownBox {
   display: flex;
@@ -47,26 +48,31 @@
   margin: auto;
   max-height: 185px;
   max-width: 300px;
-  object-fit: contain;
+  object-fit: cover;
 }
-
 .cardBottom {
-  background-color: #9c67eb; /* purple */
   padding: 1rem;
 }
-.title-container {
-  max-height: 3em;
+.titleBox {
+  max-height: 3rem;
   overflow: hidden;
   margin-bottom: 0.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
-/* 
-.title-container {
-  max-width: 70%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.title {
+  font-weight: 300;
+  line-height: 1.5rem;
 }
- */
+.textBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.currentPrice {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.arrow {
+  display: flex;
+  justify-content: flex-end;
+}

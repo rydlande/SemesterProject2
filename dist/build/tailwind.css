@@ -1,4 +1,96 @@
-/* @import url('./style.css'); */
+.card {
+  background-color: #fafafa;
+  width: 300px;
+  margin: 2rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 0.25rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 0.125rem;
+}
+
+.countdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.125rem;
+  opacity: 70%;
+  margin: 0.5rem;
+}
+
+.countdownBox {
+  display: flex;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+.clockIcon {
+  display: flex;
+  align-items: center;
+}
+
+.imageBox {
+  /* golden ratio: */
+  height: 185.4px;
+  width: 300px;
+  border-radius: 0.125rem;
+}
+
+.image {
+  display: block;
+  margin: auto;
+  max-height: 185px;
+  max-width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.cardBottom {
+  padding: 1rem;
+}
+
+.titleBox {
+  max-height: 3rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+
+.textBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currentPrice {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.arrow {
+  display: flex;
+  justify-content: flex-end;
+}
 
 /* ! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com */
 
@@ -606,18 +698,23 @@ video {
   margin: 0.25rem;
 }
 
-.m-4 {
-  margin: 1rem;
-}
-
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .mb-2 {
@@ -626,6 +723,10 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .me-3 {
@@ -642,6 +743,10 @@ video {
 
 .ms-2 {
   margin-inline-start: 0.5rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mt-4 {
@@ -734,10 +839,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-screen-xl {
-  max-width: 1440px;
 }
 
 .max-w-sm {
@@ -951,6 +1052,19 @@ video {
   text-align: center;
 }
 
+.font-body {
+  font-family: Montserrat, sans-serif;
+}
+
+.font-logo {
+  font-family: Josefin Sans, sans-serif;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1000,9 +1114,19 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.text-rose-700 {
+  --tw-text-opacity: 1;
+  color: rgb(190 18 60 / var(--tw-text-opacity));
 }
 
 .text-teal-700 {
@@ -1018,6 +1142,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .opacity-0 {
@@ -1084,106 +1212,31 @@ video {
 }
 
 @media (min-width: 976px) {
-  .lg\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  .lg\:rounded {
+    border-radius: 0.25rem;
+  }
+
+  .lg\:p-4 {
+    padding: 1rem;
+  }
+
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .lg\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
-
-/* Product-card */
-
-.card {
-  background-color: #fafafa;
-  width: 300px;
-  margin: 2rem 2rem 2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  -o-object-fit: contain;
-     object-fit: contain;
-  border-radius: 0.25rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.cardTop {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border-radius: 0.125rem;
-}
-
-.countdown {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.125rem;
-  opacity: 70%;
-  margin: 0.5rem;
-}
-
-.countdownBox {
-  display: flex;
-}
-
-.timestamp {
-  font-size: 0.75rem;
-  margin-left: 0.25rem;
-}
-
-.clockIcon {
-  display: flex;
-  align-items: center;
-}
-
-.imageBox {
-  /* golden ratio: */
-  height: 185.4px;
-  width: 300px;
-  border-radius: 0.125rem;
-}
-
-.image {
-  display: block;
-  margin: auto;
-  max-height: 185px;
-  max-width: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.cardBottom {
-  padding: 1rem;
-}
-
-.titleBox {
-  max-height: 3rem;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-}
-
-.title {
-  font-weight: 300;
-  line-height: 1.5rem;
-}
-
-.textBox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.currentPrice {
-  font-weight: 500;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.arrow {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* Product-card */

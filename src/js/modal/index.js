@@ -30,7 +30,11 @@ function toggleModal(selectedModalTargetId) {
   });
 
   const modal = document.getElementById(selectedModalTargetId);
-  modal.classList.toggle('opacity-0');
-  modal.classList.toggle('pointer-events-none');
+
+  if (modal) {
+    modal.classList.toggle('opacity-0');
+    modal.classList.toggle('pointer-events-none');
+  }
+
   body.classList.toggle('modal-active');
 }

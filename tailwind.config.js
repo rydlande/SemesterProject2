@@ -30,7 +30,12 @@ export default {
       rose: colors.rose,
       fa: '#fafafa',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ['Montserrat', 'sans-serif'],
+        logo: ['Josefin Sans', 'sans-serif'],
+      },
+    },
   },
   plugins: [require('tailwindcss'), require('autoprefixer')],
 };

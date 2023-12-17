@@ -59,6 +59,9 @@ async function register() {
     response.innerText = `Password does not match`;
   } else {
     const data = await res.json();
+    response.style.color = 'green';
+    response.style.fontStyle = 'normal';
+    response.innerText = `User created successfully. Please log in!`;
     console.log(data);
   }
 }
