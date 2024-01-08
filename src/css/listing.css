@@ -8,6 +8,10 @@ main {
   flex-direction: column;
   max-width: 400px;
 }
+hr {
+  margin: 1.5rem 0 1rem 0;
+  border-width: 1px;
+}
 .containerTop {
   width: 100%;
 }
@@ -53,6 +57,34 @@ main {
   line-height: 1rem;
   margin-bottom: 1rem;
 }
+.section {
+  margin: 2rem;
+}
+.addBid {
+  text-align: center;
+}
+.btnMinus {
+  vertical-align: middle;
+}
+#inputBid {
+  margin: 10px;
+  padding: 5px;
+  border: 0.5px solid gray;
+  border-radius: 0.125rem;
+}
+.btnPlus {
+  vertical-align: middle;
+}
+.sendBid {
+  text-align: center;
+}
+.btnSendBid {
+  border-radius: 0.125rem;
+  background-color: rgb(20 184 166);
+  padding: 5px;
+  width: 241px;
+}
+
 .containerBottom {
   width: 100%;
   max-width: 600px;
@@ -79,9 +111,10 @@ main {
 }
 .bidCreated {
   padding: 3px;
-  width: 30%;
+  width: 20%;
 }
 .bidAmount {
   padding: 3px;
-  width: 20%;
+  width: 30%;
+  text-align: right;
 }

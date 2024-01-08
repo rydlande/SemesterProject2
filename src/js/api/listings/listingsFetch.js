@@ -12,6 +12,7 @@ let startIndex = 0;
  * @param {string} apiPath - The URL to fetch the posts from.
  * @returns {Promise<void>}
  */
+
 async function listings() {
   try {
     const res = await fetch(

@@ -1,3 +1,6 @@
+import bid from './bids.js';
+import { URL } from '../constants.js';
+
 export function container(data) {
   let {
     id,
@@ -63,6 +66,7 @@ export function container(data) {
   idSpan.textContent = `#${id}`;
 
   /* DESCRIPTION */
+  const hr1 = document.createElement('hr');
   const containerDescription = document.createElement('p');
   containerDescription.classList.add('description');
   containerDescription.textContent = description;
@@ -114,6 +118,7 @@ export function container(data) {
   edited2.innerText = 'Updated';
 
   containerMid.append(
+    hr1,
     seller1,
     seller2,
     endsAt1,
@@ -123,6 +128,58 @@ export function container(data) {
     edited1,
     edited2,
   );
+
+  /* Bid */
+  const hr2 = document.createElement('hr');
+  const section = document.createElement('section');
+  const addBid = document.createElement('div');
+  addBid.classList.add('addBid');
+
+  /* Minus */
+  const btnMinus = document.createElement('button');
+  btnMinus.classList.add('btnMinus');
+  btnMinus.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+  </svg>
+`;
+  btnMinus.addEventListener('click', () => {
+    updateBidAmount(-1);
+  });
+
+  /* Input Amound */
+  const inputBid = document.createElement('input');
+  inputBid.setAttribute('type', 'text');
+  inputBid.setAttribute('placeholder', 'Enter amount');
+  inputBid.setAttribute('id', 'inputBid');
+
+  /* Plus */
+  const btnPlus = document.createElement('button');
+  btnPlus.classList.add('btnPlus');
+  btnPlus.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+  </svg>
+`;
+  btnPlus.addEventListener('click', () => {
+    updateBidAmount(1);
+  });
+
+  addBid.append(btnMinus, inputBid, btnPlus);
+
+  /* pay button */
+  const sendBid = document.createElement('div');
+  sendBid.classList.add('sendBid');
+
+  const btnSendBid = document.createElement('button');
+  btnSendBid.classList.add('btnSendBid');
+  btnSendBid.textContent = 'Place bid';
+  btnSendBid.addEventListener('click', () => {
+    bid(URL);
+  });
+
+  sendBid.appendChild(btnSendBid);
+  section.append(hr2, addBid, sendBid);
 
   /* SORT BIDS */
   const bids = data.bids || [];
@@ -135,6 +192,7 @@ export function container(data) {
   containerBottom.classList.add('containerBottom');
 
   /* Top bid */
+  const hr3 = document.createElement('hr');
   const topBidH3 = document.createElement('h3');
   topBidH3.classList.add('bidsH3');
   topBidH3.innerText = 'Top bid';
@@ -155,7 +213,7 @@ export function container(data) {
   topBidCreated.classList.add('bidCreated');
   topBidAmount.classList.add('bidAmount');
   topBidUsername.textContent = topBid.bidderName;
-  topBidAmount.textContent = topBid.amount;
+  topBidAmount.textContent = `${topBid.amount} credits`;
 
   const min = Math.floor((new Date() - new Date(topBid.created)) / 60000);
   const days = Math.floor(min / 60 / 24);
@@ -175,6 +233,7 @@ export function container(data) {
   topBidTable.appendChild(topBidRow);
 
   /* All bids */
+  const hr4 = document.createElement('hr');
   const allBidsTable = document.createElement('table');
   allBidsTable.classList.add('table');
 
@@ -189,7 +248,7 @@ export function container(data) {
     bidCreated.classList.add('bidCreated');
     bidAmount.classList.add('bidAmount');
     bidUsername.textContent = bid.bidderName;
-    bidAmount.textContent = bid.amount;
+    bidAmount.textContent = `${bid.amount} credits`;
 
     const min = Math.floor((new Date() - new Date(bid.created)) / 60000);
     const days = Math.floor(min / 60 / 24);
@@ -207,13 +266,33 @@ export function container(data) {
     allBidsRow.append(bidUsername, bidCreated, bidAmount);
     allBidsTable.appendChild(allBidsRow);
   }
-  containerBottom.append(topBidH3, topBidTable, allBids, allBidsTable);
+  containerBottom.append(
+    hr3,
+    topBidH3,
+    topBidTable,
+    hr4,
+    allBids,
+    allBidsTable,
+  );
 
-  container.append(containerTop, containerMid, containerBottom);
+  const value = Number(inputBid.value);
+  function updateBidAmount(value) {
+    let currentAmount = parseInt(inputBid.value) || 0;
+
+    if (value === -1 && currentAmount > 0) {
+      currentAmount += value;
+    } else if (value === 1) {
+      currentAmount += value;
+    }
+    inputBid.value = currentAmount;
+  }
+
+  if (value < topBid.value + 1) {
+    inputBid.value = topBid.value + 1;
+  } else if (value > topBid.value) {
+    inputBid.value = topBid.value;
+  }
+
+  container.append(containerTop, containerMid, section, containerBottom);
   return container;
 }
-
-/* 
-const  = document.createElement("div")
-.classList.add("")
- */
