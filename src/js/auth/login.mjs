@@ -1,4 +1,4 @@
-import { apiPath } from '../constants.js';
+import { apiPath } from '../api/constants.js';
 const button = document.querySelector('#loginButton');
 const email = document.querySelector('#loginEmail');
 const password = document.querySelector('#loginPassword');
@@ -50,7 +50,7 @@ async function login() {
   }
 }
 
-const username = document.querySelector('#username');
+/* const username = document.querySelector('#username');
 const name = localStorage.getItem('name');
 const pathname = window.location.pathname;
 
@@ -66,4 +66,4 @@ if (pathname === './index.html') {
   }
 } else if (pathname === './en_gb/listing/index.html') {
   username.textContent = `Test`;
-}
+} */

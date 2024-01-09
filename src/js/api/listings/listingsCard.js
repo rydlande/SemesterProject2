@@ -1,3 +1,19 @@
+/**
+ * Creates a card element for a listing.
+ *
+ * @param {Object} data - Listing data.
+ * @param {Array} data.bids - Array of bids for the listing.
+ * @param {number} data.id - Unique identifier for the listing.
+ * @param {string} data.title - Title of the listing.
+ * @param {string} data.description - Description of the listing.
+ * @param {Array} data.tags - Array of tags associated with the listing.
+ * @param {string} data.media - Media (image or video) associated with the listing.
+ * @param {string} data.created - Timestamp indicating when the listing was created.
+ * @param {string} data.updated - Timestamp indicating when the listing was last updated.
+ * @param {string} data.endsAt - Timestamp indicating when the listing auction ends.
+ * @returns {HTMLElement} - The created card element.
+ */
+
 export function card(data) {
   const bids = data.bids || [];
   const highestBid =

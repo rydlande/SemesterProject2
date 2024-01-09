@@ -9,8 +9,10 @@ function lostPasswordModal() {
   button.addEventListener('click', (e) => {
     e.preventDefault();
     if (email.value === '') {
+      response.style.color = 'red';
       response.innerText = `Email required`;
     } else if (!validEmail.test(email.value)) {
+      response.style.color = 'red';
       response.innerText = `Invalid email`;
     } else {
       response.style.color = 'green';

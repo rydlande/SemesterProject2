@@ -36,6 +36,7 @@
 .clockIcon {
   display: flex;
   align-items: center;
+  width: 16px;
 }
 .imageBox {
   /* golden ratio: */

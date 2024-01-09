@@ -1,4 +1,4 @@
-import { apiPath } from '../constants.js';
+import { apiPath } from '../api/constants.js';
 const clear = document.querySelector('#openRegisterModal');
 const button = document.querySelector('#registerButton');
 const name = document.querySelector('#registerUsername');

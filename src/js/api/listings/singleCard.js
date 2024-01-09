@@ -18,15 +18,14 @@ export function container(data) {
   const container = document.createElement('div');
   container.classList.add('container');
 
-  /* TOP CONTAINER */
-  const containerTop = document.createElement('div');
-  containerTop.classList.add('containerTop');
+  const topSection = document.createElement('section');
+  topSection.classList.add('top');
 
   /* IMAGE */
-  const imageBox = document.createElement('div');
-  imageBox.classList.add('imageBox');
+  const imageDiv = document.createElement('div');
   const image = document.createElement('img');
-  image.classList.add('image');
+  image.classList.add('imageListing');
+  imageDiv.appendChild(image);
 
   if (media.length === 0) {
     imageBox.innerHTML = `
@@ -49,34 +48,27 @@ export function container(data) {
               </div>`;
     };
   }
-  imageBox.appendChild(image);
-  containerTop.append(imageBox);
 
   /* TITLE */
-  const titleBox = document.createElement('div');
-  titleBox.classList.add('titleBox');
+  const titleAndDescriptionDiv = document.createElement('div');
+  titleAndDescriptionDiv.classList.add('titleAndDescription');
 
-  const containerTitle = document.createElement('h1');
-  containerTitle.classList.add('title');
-  containerTitle.textContent = title;
+  const titleHeading = document.createElement('h1');
+  titleHeading.classList.add('titleListing');
+  titleHeading.textContent = title;
 
-  /* ID */
   const idSpan = document.createElement('span');
   idSpan.classList.add('spanID');
   idSpan.textContent = `#${id}`;
 
-  /* DESCRIPTION */
-  const hr1 = document.createElement('hr');
-  const containerDescription = document.createElement('p');
-  containerDescription.classList.add('description');
-  containerDescription.textContent = description;
+  const descriptionParagraph = document.createElement('p');
+  descriptionParagraph.classList.add('description');
+  descriptionParagraph.textContent = description;
 
-  titleBox.append(containerTitle, idSpan, containerDescription);
-  containerTop.appendChild(titleBox);
+  titleAndDescriptionDiv.append(titleHeading, idSpan, descriptionParagraph);
 
-  /* MID CONTAINER */
-  const containerMid = document.createElement('div');
-  containerMid.classList.add('containerMid');
+  const listingInfoDiv = document.createElement('div');
+  listingInfoDiv.classList.add('listingInfo');
 
   const endsAtDate = new Date(endsAt);
   const createdDate = new Date(created);
@@ -117,8 +109,7 @@ export function container(data) {
   created2.innerText = 'Created';
   edited2.innerText = 'Updated';
 
-  containerMid.append(
-    hr1,
+  listingInfoDiv.append(
     seller1,
     seller2,
     endsAt1,
@@ -129,13 +120,14 @@ export function container(data) {
     edited2,
   );
 
-  /* Bid */
-  const hr2 = document.createElement('hr');
-  const section = document.createElement('section');
-  const addBid = document.createElement('div');
-  addBid.classList.add('addBid');
+  topSection.append(imageDiv, titleAndDescriptionDiv, listingInfoDiv);
 
-  /* Minus */
+  const midSection = document.createElement('section');
+  midSection.classList.add('mid');
+
+  const addBidDiv = document.createElement('div');
+  addBidDiv.classList.add('addBid');
+
   const btnMinus = document.createElement('button');
   btnMinus.classList.add('btnMinus');
   btnMinus.innerHTML = `
@@ -147,29 +139,26 @@ export function container(data) {
     updateBidAmount(-1);
   });
 
-  /* Input Amound */
   const inputBid = document.createElement('input');
   inputBid.setAttribute('type', 'text');
   inputBid.setAttribute('placeholder', 'Enter amount');
   inputBid.setAttribute('id', 'inputBid');
 
-  /* Plus */
   const btnPlus = document.createElement('button');
   btnPlus.classList.add('btnPlus');
   btnPlus.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-  </svg>
-`;
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+    </svg>
+  `;
   btnPlus.addEventListener('click', () => {
     updateBidAmount(1);
   });
 
-  addBid.append(btnMinus, inputBid, btnPlus);
+  addBidDiv.append(btnMinus, inputBid, btnPlus);
 
-  /* pay button */
-  const sendBid = document.createElement('div');
-  sendBid.classList.add('sendBid');
+  const sendBidDiv = document.createElement('div');
+  sendBidDiv.classList.add('sendBid');
 
   const btnSendBid = document.createElement('button');
   btnSendBid.classList.add('btnSendBid');
@@ -178,8 +167,8 @@ export function container(data) {
     bid(URL);
   });
 
-  sendBid.appendChild(btnSendBid);
-  section.append(hr2, addBid, sendBid);
+  sendBidDiv.appendChild(btnSendBid);
+  midSection.append(addBidDiv, sendBidDiv, document.createElement('hr'));
 
   /* SORT BIDS */
   const bids = data.bids || [];
@@ -187,21 +176,16 @@ export function container(data) {
   console.log(sortedBids[0].bidderName);
   console.log(sortedBids[0]);
 
-  /* BOTTOM CONTAINER */
-  const containerBottom = document.createElement('div');
-  containerBottom.classList.add('containerBottom');
+  const bottomSection = document.createElement('section');
+  bottomSection.classList.add('bottom');
 
-  /* Top bid */
-  const hr3 = document.createElement('hr');
   const topBidH3 = document.createElement('h3');
   topBidH3.classList.add('bidsH3');
-  topBidH3.innerText = 'Top bid';
-  const allBids = document.createElement('h3');
-  allBids.classList.add('bidsH3');
-  allBids.innerText = 'All bids';
+  topBidH3.textContent = 'Top bid';
 
   const topBidTable = document.createElement('table');
   topBidTable.classList.add('table');
+
   const topBidRow = document.createElement('tr');
 
   const topBid = sortedBids[0];
@@ -232,8 +216,10 @@ export function container(data) {
   topBidRow.append(topBidUsername, topBidCreated, topBidAmount);
   topBidTable.appendChild(topBidRow);
 
-  /* All bids */
-  const hr4 = document.createElement('hr');
+  const allBidsH3 = document.createElement('h3');
+  allBidsH3.classList.add('bidsH3');
+  allBidsH3.textContent = 'All bids';
+
   const allBidsTable = document.createElement('table');
   allBidsTable.classList.add('table');
 
@@ -266,12 +252,11 @@ export function container(data) {
     allBidsRow.append(bidUsername, bidCreated, bidAmount);
     allBidsTable.appendChild(allBidsRow);
   }
-  containerBottom.append(
-    hr3,
+  bottomSection.append(
     topBidH3,
     topBidTable,
-    hr4,
-    allBids,
+    document.createElement('hr'),
+    allBidsH3,
     allBidsTable,
   );
 
@@ -293,6 +278,6 @@ export function container(data) {
     inputBid.value = topBid.value;
   }
 
-  container.append(containerTop, containerMid, section, containerBottom);
+  container.append(topSection, midSection, bottomSection);
   return container;
 }
