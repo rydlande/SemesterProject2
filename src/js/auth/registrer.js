@@ -1,20 +1,19 @@
 import { apiPath } from '../api/constants.js';
 const clear = document.querySelector('#openRegisterModal');
 const button = document.querySelector('#registerButton');
-const name = document.querySelector('#registerUsername');
+const username = document.querySelector('#registerUsername');
 const email = document.querySelector('#registerEmail');
 const password = document.querySelector('#registerPassword1');
-const password2 = document.querySelector('#registerPassword2');
 const response = document.querySelector('#registerResponse');
 
 function clearInputFields() {
-  name.value = '';
+  username.value = '';
   email.value = '';
   password.value = '';
-  password2.value = '';
 }
 
 clear.addEventListener('click', (e) => {
+  e.preventDefault();
   clearInputFields();
 });
 
@@ -27,7 +26,7 @@ async function register() {
   response.innerText = '';
 
   let user = {
-    name: name.value,
+    name: username.value,
     email: email.value,
     password: password.value,
   };
@@ -53,10 +52,8 @@ async function register() {
     } else {
       response.innerHTML = `Something went wrong. Please try again. </br>(Error: ${errorRes.errors[0].message})`;
     }
-  } else if (password.value !== password2.value) {
-    response.innerText = `Password does not match`;
   } else {
-    const data = await res.json();
+    await res.json();
     response.style.color = 'green';
     response.style.fontStyle = 'normal';
     response.innerText = `User created successfully. Please log in!`;

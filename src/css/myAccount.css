@@ -1,0 +1,72 @@
+.myAccountContainer {
+  display: flex;
+  justify-content: center;
+}
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.avatarDiv {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.avatarDiv img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.nameEmail {
+  margin: 16px 0 0 0;
+  width: 100%;
+  text-align: center;
+}
+.username {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 3px;
+}
+.email {
+  color: teal;
+  text-decoration: underline;
+  font-size: 0.75rem;
+}
+.overviewSection {
+  display: none;
+}
+.sectionName {
+}
+.hiddenMenu {
+  display: none;
+}
+@media (min-width: 640px) {
+  .profileInfo {
+    flex-direction: row;
+    align-items: center;
+  }
+  .avatarDiv {
+    border-radius: 0.25rem;
+    width: 314px;
+    height: 314px;
+    max-width: 50%;
+  }
+  .nameEmail {
+    margin: 0 0 0 0.75rem;
+    width: 50%;
+    text-align: left;
+  }
+  .username {
+    font-size: 1.75rem;
+    margin-top: 0;
+  }
+  .email {
+    font-size: 1rem;
+  }
+  .overviewSection {
+    display: none;
+  }
+}
