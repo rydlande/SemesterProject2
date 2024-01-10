@@ -11,13 +11,11 @@ export function container(data) {
 
   const topSection = document.createElement('section');
   topSection.classList.add('topSection');
-
   const imageDiv = document.createElement('div');
   const image = document.createElement('img');
   imageDiv.classList.add('imageDiv');
   image.classList.add('imageListing');
   imageDiv.appendChild(image);
-
   if (media.length === 0) {
     imageBox.innerHTML = `
           <div class="flex flex-col items-center justify-center w-full h-48 bg-gray-200 rounded-sm">
@@ -28,7 +26,6 @@ export function container(data) {
           </div>`;
   } else {
     image.src = media;
-
     image.onerror = function () {
       imageBox.innerHTML = `
               <div class="flex flex-col items-center justify-center w-full h-48 bg-gray-200 rounded-sm">
