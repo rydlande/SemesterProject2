@@ -42,7 +42,6 @@ async function register() {
 
   if (!res.ok) {
     const errorRes = await res.json();
-    console.log(errorRes);
     if (
       errorRes.errors[0].message ===
       'Only noroff.no emails are allowed to register'
@@ -53,7 +52,6 @@ async function register() {
       response.innerText = `${errorMessage}`;
     } else {
       response.innerHTML = `Something went wrong. Please try again. </br>(Error: ${errorRes.errors[0].message})`;
-      console.log(`${errorRes.status}`);
     }
   } else if (password.value !== password2.value) {
     response.innerText = `Password does not match`;
@@ -62,6 +60,5 @@ async function register() {
     response.style.color = 'green';
     response.style.fontStyle = 'normal';
     response.innerText = `User created successfully. Please log in!`;
-    console.log(data);
   }
 }

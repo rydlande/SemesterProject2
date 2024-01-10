@@ -21,24 +21,20 @@ export function card(data) {
 
   let { id, title, description, tags, media, created, updated, endsAt } = data;
 
-  /* CARD */
   const card = document.createElement('div');
   card.classList.add('card');
 
   const cardLink = document.createElement('a');
   cardLink.href = `../../../../en_gb/listing/?id=${id}`;
 
-  /* TOP CONTAINER */
   const cardTop = document.createElement('div');
   cardTop.classList.add('cardTop');
 
-  /* COUNDOWN CONTAINER */
   const countdown = document.createElement('div');
   countdown.classList.add('countdown');
   const countdownBox = document.createElement('div');
   countdownBox.classList.add('countdownBox');
 
-  /* CLOCK ICON */
   const clockIcon = document.createElement('div');
   clockIcon.classList.add('clockIcon');
   clockIcon.innerHTML = `
@@ -58,7 +54,6 @@ export function card(data) {
           </svg>
           `;
 
-  /* TIME */
   const timestamp = document.createElement('p');
   timestamp.classList.add('timestamp');
   const endsAtTime = new Date(endsAt).getTime();
@@ -88,7 +83,6 @@ export function card(data) {
   countdownBox.append(clockIcon, timestamp);
   countdown.appendChild(countdownBox);
 
-  /* IMAGE */
   const imageBox = document.createElement('div');
   imageBox.classList.add('imageBox');
   const image = document.createElement('img');
@@ -119,13 +113,11 @@ export function card(data) {
   cardTop.append(countdown, imageBox);
   cardLink.appendChild(cardTop);
 
-  /* BOTTOM CONTAINER */
   const cardBottom = document.createElement('div');
   cardBottom.classList.add('cardBottom');
   const titleBox = document.createElement('div');
   titleBox.classList.add('titleBox');
 
-  /* TITTEL */
   const cardTitle = document.createElement('h2');
   cardTitle.textContent = title;
   cardTitle.classList.add('title');
@@ -149,7 +141,6 @@ export function card(data) {
   cardBottom.append(titleBox, textBox);
   cardLink.appendChild(cardBottom);
 
-  /* LINK TIL CARD + CARD TIL CONTAINER */
   card.appendChild(cardLink);
   return card;
 }

@@ -10,7 +10,7 @@
  * @throws {Error} If the API request fails.
  */
 
-import { apiPath } from '../constants.js';
+import { apiPath } from '../api/constants.js';
 import { card } from './listingsCard.js';
 
 const container = document.querySelector('#container');

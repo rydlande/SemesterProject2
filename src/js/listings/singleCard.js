@@ -1,29 +1,20 @@
 import bid from './bids.js';
-import { URL } from '../constants.js';
+import { URL } from '../api/constants.js';
+export const responseSendBid = document.createElement('p');
 
 export function container(data) {
-  let {
-    id,
-    title,
-    description,
-    tags,
-    media,
-    created,
-    updated,
-    endsAt,
-    seller,
-  } = data;
+  let { id, title, description, media, created, updated, endsAt, seller } =
+    data;
 
-  /* CONTAINER */
   const container = document.createElement('div');
   container.classList.add('container');
 
   const topSection = document.createElement('section');
-  topSection.classList.add('top');
+  topSection.classList.add('topSection');
 
-  /* IMAGE */
   const imageDiv = document.createElement('div');
   const image = document.createElement('img');
+  imageDiv.classList.add('imageDiv');
   image.classList.add('imageListing');
   imageDiv.appendChild(image);
 
@@ -49,7 +40,8 @@ export function container(data) {
     };
   }
 
-  /* TITLE */
+  const flexContainer = document.createElement('div');
+  flexContainer.classList.add('flexContainer');
   const titleAndDescriptionDiv = document.createElement('div');
   titleAndDescriptionDiv.classList.add('titleAndDescription');
 
@@ -82,7 +74,6 @@ export function container(data) {
     hour12: false,
   };
 
-  /* Seller, EndsAt, Created, Updated */
   const seller1 = document.createElement('p');
   const endsAt1 = document.createElement('p');
   const created1 = document.createElement('p');
@@ -119,8 +110,10 @@ export function container(data) {
     edited1,
     edited2,
   );
-
-  topSection.append(imageDiv, titleAndDescriptionDiv, listingInfoDiv);
+  const hr = document.createElement('hr');
+  hr.classList.add('hrFlexContainer');
+  flexContainer.append(titleAndDescriptionDiv, hr, listingInfoDiv);
+  topSection.append(imageDiv, flexContainer);
 
   const midSection = document.createElement('section');
   midSection.classList.add('mid');
@@ -163,18 +156,24 @@ export function container(data) {
   const btnSendBid = document.createElement('button');
   btnSendBid.classList.add('btnSendBid');
   btnSendBid.textContent = 'Place bid';
-  btnSendBid.addEventListener('click', () => {
-    bid(URL);
+  btnSendBid.addEventListener('click', async () => {
+    await bid(URL);
   });
 
-  sendBidDiv.appendChild(btnSendBid);
-  midSection.append(addBidDiv, sendBidDiv, document.createElement('hr'));
+  responseSendBid.classList.add('responseSendBid');
+  responseSendBid.id = 'responseSendBid';
 
-  /* SORT BIDS */
+  sendBidDiv.appendChild(btnSendBid);
+  midSection.append(
+    document.createElement('hr'),
+    addBidDiv,
+    sendBidDiv,
+    responseSendBid,
+    document.createElement('hr'),
+  );
+
   const bids = data.bids || [];
   const sortedBids = bids.slice().sort((a, b) => b.amount - a.amount);
-  console.log(sortedBids[0].bidderName);
-  console.log(sortedBids[0]);
 
   const bottomSection = document.createElement('section');
   bottomSection.classList.add('bottom');
@@ -252,6 +251,7 @@ export function container(data) {
     allBidsRow.append(bidUsername, bidCreated, bidAmount);
     allBidsTable.appendChild(allBidsRow);
   }
+
   bottomSection.append(
     topBidH3,
     topBidTable,

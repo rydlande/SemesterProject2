@@ -5,6 +5,6 @@ button.addEventListener('click', () => {
   localStorage.removeItem('name');
 
   setTimeout(() => {
-    window.location.href = 'index.html';
+    location.reload();
   }, 1000);
 });

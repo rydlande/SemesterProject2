@@ -24,7 +24,6 @@ async function login() {
 
   if (!res.ok) {
     const errorRes = await res.json();
-    console.log(errorRes);
     if (
       errorRes.errors[0].message ===
       'Only noroff.no emails are allowed to register'
@@ -38,14 +37,13 @@ async function login() {
       response.innerText = `${errorMessage}`;
     } else {
       response.innerHTML = `Something went wrong. Please try again. </br>(Error: ${errorRes.errors[0].message})`;
-      console.log(`${errorRes.status}`);
     }
   } else {
     const data = await res.json();
     localStorage.setItem('token', data.accessToken);
     localStorage.setItem('name', data.name);
     setTimeout(() => {
-      window.location.href = 'index.html';
+      location.reload();
     }, 1000);
   }
 }

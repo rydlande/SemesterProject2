@@ -1,10 +1,8 @@
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
-console.log(params);
 const id = params.get('id');
-console.log(id);
 
-import { apiPath } from '../constants.js';
+import { apiPath } from '../api/constants.js';
 import { container } from './singleCard.js';
 
 const main = document.querySelector('main');
@@ -26,7 +24,6 @@ async function listing() {
     }
 
     const data = await res.json();
-    console.log(data);
     document.title = `${data.title} | Arthall`;
     main.append(container(data));
   } catch (error) {
