@@ -1,0 +1,160 @@
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  max-width: 400px;
+  margin: 0 20px 0 20px;
+}
+hr {
+  margin: 1.5rem 0 1rem 0;
+  border-width: 1px;
+}
+.topSection {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+.flexContainer {
+  margin: 16px 0 0 0;
+  width: 100%;
+}
+.hrFlexContainer {
+  display: block;
+}
+.imageDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  width: 100%;
+}
+.imageListing {
+  max-height: 300px;
+  border-radius: 0.125rem;
+  object-fit: contain;
+}
+.titleAndDescription {
+  margin: 0;
+}
+.titleListing {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 3px;
+}
+.spanID {
+  font-weight: 300;
+  color: rgb(107 114 128);
+  font-size: 0.75rem;
+}
+.description {
+  font-size: 0.75rem;
+}
+.top {
+  font-weight: 700;
+}
+.under {
+  font-weight: 300;
+  color: rgb(107 114 128);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 1rem;
+}
+.addBid {
+  text-align: center;
+}
+.btnMinus {
+  vertical-align: middle;
+}
+#inputBid {
+  margin: 10px;
+  padding: 5px;
+  border: 0.5px solid gray;
+  border-radius: 0.125rem;
+}
+.btnPlus {
+  vertical-align: middle;
+}
+.sendBid {
+  text-align: center;
+}
+.btnSendBid {
+  border-radius: 0.125rem;
+  background-color: rgb(20 184 166);
+  padding: 5px;
+  width: 241px;
+}
+.responseSendBid {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.bidsH3 {
+  font-weight: 600;
+  color: rgb(107 114 128);
+  margin-bottom: 2px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 450px;
+  margin: auto;
+  font-size: 14px;
+}
+.bidUsername {
+  padding: 3px;
+  width: 50%;
+}
+.bidCreated {
+  padding: 3px;
+  width: 20%;
+}
+.bidAmount {
+  padding: 3px;
+  width: 30%;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 20px 0 20px;
+  }
+  .topSection {
+    flex-direction: row;
+  }
+  .flexContainer {
+    width: 50%;
+    margin: 0 0 0 0.75rem;
+  }
+  .hrFlexContainer {
+    display: none;
+  }
+  .imageDiv {
+    width: 50%;
+  }
+  .imageListing {
+    max-width: 378px;
+    border-radius: 0.25rem;
+  }
+  .titleListing {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  .description {
+    margin-bottom: 0.75rem;
+  }
+  .btnSendBid {
+    border-radius: 0.25em;
+  }
+  .bidsH3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .table {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,79 @@
+.card {
+  background-color: #fafafa;
+  width: 300px;
+  margin: 2rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  object-fit: contain;
+  border-radius: 0.25rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 0.125rem;
+}
+.countdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.125rem;
+  opacity: 70%;
+  margin: 0.5rem;
+}
+.countdownBox {
+  display: flex;
+}
+.timestamp {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+.clockIcon {
+  display: flex;
+  align-items: center;
+  width: 16px;
+}
+.imageBox {
+  /* golden ratio: */
+  height: 185.4px;
+  width: 300px;
+  border-radius: 0.125rem;
+}
+.image {
+  display: block;
+  margin: auto;
+  max-height: 185px;
+  max-width: 300px;
+  object-fit: cover;
+}
+.cardBottom {
+  padding: 1rem;
+}
+.titleBox {
+  max-height: 3rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.title {
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+.textBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.currentPrice {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.arrow {
+  display: flex;
+  justify-content: flex-end;
+}
