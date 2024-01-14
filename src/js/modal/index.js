@@ -1,3 +1,4 @@
+/* skulle fikse slik at "filter" knappen ikke ligger øverst når modal  åpnes */
 const openmodal = document.querySelectorAll('.modal-open');
 
 for (let i = 0; i < openmodal.length; i++) {

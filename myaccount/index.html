@@ -4,71 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="../../src/js/index.js"></script>
-    <script type="module" src="../../src/js/listings/singleFetch.js"></script>
+    <script type="module" src="../../src/js/profiles/myAccountCard.js"></script>
+    <script
+      type="module"
+      src="../../src/js/profiles/myAccountFetch.js"
+    ></script>
 
     <link rel="stylesheet" href="../../dist/build/tailwind.css" />
-    <link rel="stylesheet" href="../../src/css/listing.css" />
+    <link rel="stylesheet" href="../../src/css/myAccount.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-    <title></title>
+    <title>My Profile | Arthall</title>
   </head>
-
-  <body class="bg-fa font-body">
+  <body>
     <header>
-      <nav
-        class="px-4 lg:px-10 py-2.5 lg:py-4 flex flex-wrap justify-between items-center"
-      >
-        <div>
-          <a href="../../index.html">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
-              />
-            </svg>
-          </a>
-          <span id="username"></span>
-        </div>
-        <div id="container"></div>
-        <div class="flex items-center">
-          <button
-            id="loginBtn"
-            type="button"
-            class="text-black bg-teal-500 hover:bg-teal-700 focus:outline-ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded text-sm px-5 py-2.5 text-center modal-open"
-            data-toggle="modal"
-            data-target="loginModal"
-          ></button>
-          <button
-            id="logoutBtn"
-            type="button"
-            class="text-black bg-teal-500 hover:bg-teal-700 focus:outline-ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded text-sm px-5 py-2.5 text-center modal-open"
-          ></button>
-        </div>
-      </nav>
+      <button
+        id="loginBtn"
+        type="button"
+        class="text-black bg-teal-500 hover:bg-teal-700 focus:outline-ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded text-sm px-5 py-2.5 text-center modal-open"
+        data-toggle="modal"
+        data-target="loginModal"
+      ></button>
+      <button
+        id="logoutBtn"
+        type="button"
+        class="text-black bg-teal-500 hover:bg-teal-700 focus:outline-ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded text-sm px-5 py-2.5 text-center modal-open"
+      ></button>
     </header>
-    <main></main>
+
+    <main>
+      <section id="myAccountSection"></section>
+      <section id="overviewSection"></section>
+    </main>
+
     <footer class="bg-fa rounded-lg shadow my-2">
       <div class="w-full mx-auto p-2">
         <span class="text-sm text-gray-500 sm:text-center"
           >© 2024
-          <a href="https://flowbite.com/" class="hover:underline">Arthall™</a>.
-          All Rights Reserved.
+          <a
+            href="https://rydlande.github.io/SemesterProject2/"
+            class="hover:underline"
+            >Arthall™</a
+          >. All Rights Reserved.
         </span>
       </div>
     </footer>
-
     <!-- Login modal -->
     <div
       class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
@@ -90,7 +75,10 @@
               <p class="lg:text-lg font-light">We've missed you!</p>
             </div>
 
-            <div class="modal-close cursor-pointer z-50">
+            <div
+              class="modal-close cursor-pointer z-50"
+              title="Continue without signing in"
+            >
               <svg
                 class="fill-current text-black"
                 xmlns="http://www.w3.org/2000/svg"
@@ -199,11 +187,13 @@
         <div class="modal-content bg-fa py-4 text-left px-6">
           <div class="flex justify-between items-top pb-7">
             <div class="flex justify-around items-start flex-col">
-              <h3 class="text-3xl font-bold pb-1">Create an account</h3>
-              <p class="text-lg font-light">
+              <h3 class="text-2xl font-bold pb-1 md:text-3xl">
+                Create an account
+              </h3>
+              <p class="font-light md:text-lg">
                 Registrer to get 1000 free credits.
               </p>
-              <p class="text-lg font-light">Let's get started!</p>
+              <p class="font-light md:text-lg">Let's get started!</p>
             </div>
 
             <div class="modal-close cursor-pointer z-50">
@@ -226,28 +216,28 @@
               <div>
                 <label
                   for="registerUsername"
-                  class="block mb-2 text-sm font-semibold"
+                  class="block mb-1 text-sm font-semibold"
                   >Username</label
                 >
                 <input
                   type="text"
                   name="registerUsername"
                   id="registerUsername"
-                  class="bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-4"
+                  class="bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-2 lg:p-4"
                   placeholder="Username"
                 />
               </div>
               <div>
                 <label
                   for="registerEmail"
-                  class="block mb-2 text-sm font-semibold"
+                  class="block mb-1 text-sm font-semibold"
                   >Email</label
                 >
                 <input
                   type="email"
                   name="registerEmail"
                   id="registerEmail"
-                  class="bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-4"
+                  class="bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-2 lg:p-4"
                   placeholder="example@noroff.no"
                   required
                 />
@@ -255,7 +245,7 @@
               <div>
                 <label
                   for="registerPassword1"
-                  class="block mb-2 text-sm font-semibold"
+                  class="block mb-1 text-sm font-semibold"
                   >Password</label
                 >
                 <input
@@ -263,29 +253,15 @@
                   name="registerPassword1"
                   id="registerPassword1"
                   placeholder="••••••••"
-                  class="bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-4"
+                  class="bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-2 lg:p-4"
                   required
                 />
               </div>
-              <div>
-                <label
-                  for="registerPassword2"
-                  class="block mb-2 text-sm font-semibold"
-                  >Repeat password</label
-                >
-                <input
-                  type="password"
-                  name="registerPassword2"
-                  id="registerPassword2"
-                  placeholder="••••••••"
-                  class="bg-gray-100 border border-gray-300 text-sm rounded-sm block w-full p-4"
-                  required
-                />
-              </div>
+
               <div>
                 <label
                   for="registerAvatarURL"
-                  class="block mb-2 text-sm font-semibold"
+                  class="block mb-1 text-sm font-semibold"
                 >
                   Avatar
                 </label>
@@ -293,7 +269,7 @@
                   type="text"
                   id="imageUrl"
                   placeholder="Paste Image URL"
-                  class="text-sm bg-gray-100 border-2 border-gray-300 border-dashed rounded-sm p-4 w-full block mb-2"
+                  class="bg-gray-100 border border-gray-300 border-dashed text-sm rounded-sm block w-full p-2 lg:p-4"
                 />
               </div>
 

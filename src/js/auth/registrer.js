@@ -1,4 +1,4 @@
-import { apiPath } from '../api/constants.js';
+import { URL } from '../api/constants.js';
 const clear = document.querySelector('#openRegisterModal');
 const button = document.querySelector('#registerButton');
 const username = document.querySelector('#registerUsername');
@@ -31,7 +31,7 @@ async function register() {
     password: password.value,
   };
 
-  const res = await fetch(apiPath + '/auction/auth/register', {
+  const res = await fetch(URL + '/auction/auth/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

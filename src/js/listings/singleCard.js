@@ -1,5 +1,4 @@
 import bid from './bids.js';
-import { URL } from '../api/constants.js';
 export const responseSendBid = document.createElement('p');
 
 export function container(data) {
@@ -71,7 +70,7 @@ export function container(data) {
     hour12: false,
   };
 
-  const seller1 = document.createElement('p');
+  const seller1 = document.createElement('a');
   const endsAt1 = document.createElement('p');
   const created1 = document.createElement('p');
   const edited1 = document.createElement('p');
@@ -79,6 +78,7 @@ export function container(data) {
   endsAt1.classList.add('top');
   created1.classList.add('top');
   edited1.classList.add('top');
+  seller1.href = `../../../../profile/index.html`;
   seller1.textContent = seller.name;
   endsAt1.textContent = endsAtDate.toLocaleString('en-US', createdOptions);
   created1.textContent = createdDate.toLocaleString('en-US', createdOptions);

@@ -14,7 +14,7 @@
  * @returns {HTMLElement} - The created card element.
  */
 
-export function card(data) {
+export function newCard(data) {
   const bids = data.bids || [];
   const highestBid =
     bids.length > 0 ? Math.max(...bids.map((bid) => bid.amount)) : 0;
@@ -25,7 +25,7 @@ export function card(data) {
   card.classList.add('card');
 
   const cardLink = document.createElement('a');
-  cardLink.href = `../../../../en_gb/listing/?id=${id}`;
+  cardLink.href = `../../../../listing/?id=${id}`;
 
   const cardTop = document.createElement('div');
   cardTop.classList.add('cardTop');
@@ -129,6 +129,10 @@ export function card(data) {
   const currentPrice = document.createElement('p');
   currentPrice.textContent = `€${highestBid}`;
   currentPrice.classList.add('currentPrice');
+
+  const displayTags = document.createElement('p');
+  displayTags.textContent = `${tags}`;
+  displayTags.classList.add('currentPrice');
 
   const arrow = document.createElement('div');
   arrow.classList.add('arrow');

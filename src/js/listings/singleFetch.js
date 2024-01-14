@@ -2,7 +2,7 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get('id');
 
-import { apiPath } from '../api/constants.js';
+import { URL } from '../api/constants.js';
 import { container } from './singleCard.js';
 
 const main = document.querySelector('main');
@@ -10,7 +10,7 @@ const main = document.querySelector('main');
 async function listing() {
   try {
     const res = await fetch(
-      apiPath + '/auction/listings/' + id + '?_seller=true&_bids=true',
+      URL + '/auction/listings/' + id + '?_seller=true&_bids=true',
       {
         method: 'get',
         headers: {

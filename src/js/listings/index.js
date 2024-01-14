@@ -1,1 +1,1 @@
-export * from './listingsFetch.js';
+export * from './populateListings.js';

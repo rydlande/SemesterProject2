@@ -1,0 +1,56 @@
+<!-- 
+    Denne siden skal være lik myAccount.html men med andres info (minus edit profile).
+    Andres profiler skulle kunne hentes via listings, ved å trykke på selges navn.
+ -->
+<!doctype html>
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../../src/js/index.js"></script>
+    <script type="module" src="../../src/js/profiles/myAccountCard.js"></script>
+    <script
+      type="module"
+      src="../../src/js/profiles/myAccountFetch.js"
+    ></script>
+
+    <link rel="stylesheet" href="../../dist/build/tailwind.css" />
+    <link rel="stylesheet" href="../../src/css/myAccount.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Someones Profile | Arthall</title>
+  </head>
+  <body>
+    <header>
+      <button
+        id="loginBtn"
+        type="button"
+        class="text-black bg-teal-500 hover:bg-teal-700 focus:outline-ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded text-sm px-5 py-2.5 text-center modal-open"
+        data-toggle="modal"
+        data-target="loginModal"
+      ></button>
+      <button
+        id="logoutBtn"
+        type="button"
+        class="text-black bg-teal-500 hover:bg-teal-700 focus:outline-ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded text-sm px-5 py-2.5 text-center modal-open"
+      ></button>
+    </header>
+    <main></main>
+    <footer class="bg-fa rounded-lg shadow my-2">
+      <div class="w-full mx-auto p-2">
+        <span class="text-sm text-gray-500 sm:text-center"
+          >© 2024
+          <a
+            href="https://rydlande.github.io/SemesterProject2/"
+            class="hover:underline"
+            >Arthall™</a
+          >. All Rights Reserved.
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
