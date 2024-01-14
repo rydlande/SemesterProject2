@@ -1,3 +1,7 @@
+#select-container input {
+  padding: 10px;
+}
+
 .card {
   background-color: #fafafa;
   width: 300px;

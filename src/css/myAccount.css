@@ -1,5 +1,21 @@
+/* jeg forandret på koden for å legge inn option-menu (toggle or tab) så har innholdet på profilsiden gått bort fra å være midtstilt. */
+.section-content {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
 .myAccountContainer {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .profileInfo {
@@ -18,6 +34,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: none;
 }
 .nameEmail {
   margin: 16px 0 0 0;
@@ -34,11 +51,6 @@
   color: teal;
   text-decoration: underline;
   font-size: 0.75rem;
-}
-.overviewSection {
-  display: none;
-}
-.sectionName {
 }
 .hiddenMenu {
   display: none;
@@ -65,8 +77,5 @@
   }
   .email {
     font-size: 1rem;
-  }
-  .overviewSection {
-    display: none;
   }
 }

@@ -2,8 +2,7 @@
   "name": "4-sp2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "tailwind.config.js",
   "scripts": {
     "build": "npm install && npx tailwindcss build -i ./src/css/tailwind.css -o ./dist/build/tailwind.css",
     "watch": "npx tailwindcss build -i src/css/tailwind.css -o dist/build/tailwind.css --watch"

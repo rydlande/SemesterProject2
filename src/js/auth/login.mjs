@@ -1,4 +1,4 @@
-import { apiPath } from '../api/constants.js';
+import { URL } from '../api/constants.js';
 const button = document.querySelector('#loginButton');
 const email = document.querySelector('#loginEmail');
 const password = document.querySelector('#loginPassword');
@@ -14,7 +14,7 @@ async function login() {
     email: email.value,
     password: password.value,
   };
-  const res = await fetch(apiPath + '/auction/auth/login', {
+  const res = await fetch(URL + '/auction/auth/login', {
     method: 'post',
     body: JSON.stringify(user),
     headers: {
@@ -42,26 +42,9 @@ async function login() {
     const data = await res.json();
     localStorage.setItem('token', data.accessToken);
     localStorage.setItem('name', data.name);
+    localStorage.setItem('credits', data.credits);
     setTimeout(() => {
       location.reload();
     }, 1000);
   }
 }
-
-/* const username = document.querySelector('#username');
-const name = localStorage.getItem('name');
-const pathname = window.location.pathname;
-
-if (pathname === './index.html') {
-  if (name) {
-    username.textContent = `Hello, ${name}`;
-  } else if (name === '') {
-    username.textContent = 'Hello, Guest';
-  } else if (name === 'undefined') {
-    username.textContent = 'Hello, Guest';
-  } else {
-    username.textContent = 'Hello, Guest';
-  }
-} else if (pathname === './en_gb/listing/index.html') {
-  username.textContent = `Test`;
-} */
