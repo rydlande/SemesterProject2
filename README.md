@@ -1,5 +1,8 @@
 # Semester Project 2 - Auction Website Project
 
+![Screenshot 2024-06-10 at 21 38 40](https://github.com/rydlande/SemesterProject2/assets/112164731/d335f757-99d8-4705-8c99-8c1d27aa74bb)
+
+
 ## Project Overview
 
 Develop a responsive auction website where users can list items for auction and bid on other users' items, managing credits earned and spent.
